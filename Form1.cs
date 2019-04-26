@@ -13,6 +13,7 @@ namespace Proza
 {
     public partial class Proza : Form
     {
+        const string configFolder = "%@USERPROFILE%\\.IntelliJIdea2018.2\\config";
         public Proza()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace Proza
 
         private Boolean deleteEval()
         {
-            const String evalDirectory = "%USERPROFILE%\\.IntelliJIdea2018.2\\config\\eval";
+            const String evalDirectory = configFolder+"\\eval";
 
             if (Directory.Exists(evalDirectory))
             {
@@ -31,8 +32,6 @@ namespace Proza
                 }
                 catch (Exception e)
                 {
-                    history.Text = e.Message;
-                    Console.WriteLine("The process failed: {0}", e.Message);
                     if (!string.IsNullOrWhiteSpace(history.Text))
                     {
                         history.AppendText("\r\n" + e.Message);
@@ -47,5 +46,18 @@ namespace Proza
             }
             return false;
         }
+
+        private Boolean deleteEvlsprLines()
+        {
+            const String optionsXmlFile = configFolder + "\\options\\options.xml";
+
+            if (File.Exists(optionsXmlFile))
+            {
+
+
+            }
+            return false;
+        }
+
     }
 }
