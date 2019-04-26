@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace Proza
 {
@@ -32,15 +34,7 @@ namespace Proza
                 }
                 catch (Exception e)
                 {
-                    if (!string.IsNullOrWhiteSpace(history.Text))
-                    {
-                        history.AppendText("\r\n" + e.Message);
-                    }
-                    else
-                    {
-                        history.AppendText(e.Message);
-                    }
-                    history.ScrollToCaret();
+                    this.putMessageToHistory(e.Message);
                     return false;
                 }
             }
@@ -53,10 +47,35 @@ namespace Proza
 
             if (File.Exists(optionsXmlFile))
             {
-
+                try
+                {
+                    XDocument doc = XDocument.Load(@optionsXmlFile);
+                    doc.Descendants("component").Where(rec => rec.Attribute("name").Value.StartsWith("evlspr")).Remove();
+                    doc.Save(@optionsXmlFile);
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    this.putMessageToHistory(e.Message);
+                    return false;
+                }
+                
 
             }
             return false;
+        }
+
+        private void putMessageToHistory(String message)
+        {
+            if (!string.IsNullOrWhiteSpace(history.Text))
+            {
+                history.AppendText("\r\n" + message);
+            }
+            else
+            {
+                history.AppendText(message);
+            }
+            history.ScrollToCaret();
         }
 
     }
