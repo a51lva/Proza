@@ -1,0 +1,13 @@
+C:\Users\acorreis\Desktop\Source\Proza\Proza\bin\Debug\Proza.exe.config
+C:\Users\acorreis\Desktop\Source\Proza\Proza\bin\Debug\Proza.exe
+C:\Users\acorreis\Desktop\Source\Proza\Proza\bin\Debug\Proza.pdb
+C:\Users\acorreis\Desktop\Source\Proza\Proza\bin\Debug\en\Proza.resources.dll
+C:\Users\acorreis\Desktop\Source\Proza\Proza\obj\Debug\Proza.csprojAssemblyReference.cache
+C:\Users\acorreis\Desktop\Source\Proza\Proza\obj\Debug\Proza.Proza.resources
+C:\Users\acorreis\Desktop\Source\Proza\Proza\obj\Debug\Proza.Properties.Resources.resources
+C:\Users\acorreis\Desktop\Source\Proza\Proza\obj\Debug\Proza.Proza.en.resources
+C:\Users\acorreis\Desktop\Source\Proza\Proza\obj\Debug\Proza.csproj.GenerateResource.cache
+C:\Users\acorreis\Desktop\Source\Proza\Proza\obj\Debug\Proza.csproj.CoreCompileInputs.cache
+C:\Users\acorreis\Desktop\Source\Proza\Proza\obj\Debug\en\Proza.resources.dll
+C:\Users\acorreis\Desktop\Source\Proza\Proza\obj\Debug\Proza.exe
+C:\Users\acorreis\Desktop\Source\Proza\Proza\obj\Debug\Proza.pdb
