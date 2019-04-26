@@ -97,11 +97,6 @@ namespace Proza
             history.ScrollToCaret();
         }
 
-        private void RunButton_Click(object sender, EventArgs e)
-        {
-            this.runCommand();
-        }
-
         private void runCommand()
         {
             if (this.deleteEval())
@@ -117,6 +112,70 @@ namespace Proza
             if (this.deleteRegistryRow())
             {
                 this.putMessageToHistory("Registry Idea folder deleted");
+            }
+        }
+
+        private void runWithWindows(string command)
+        {
+            switch (command)
+            {
+                case "activate":
+                    this.activateRunWithWindows();
+                    break;
+                case "disactivate":
+                    this.disactivateRunWithWindows();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void activateRunWithWindows()
+        {
+            try
+            {
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+                {
+                    key.SetValue("Proza", "\"" + Application.ExecutablePath + "\"");
+                    key.Close();
+                    runWithWindowsCheckBox.Checked = true;
+                    putMessageToHistory("Run with windows: " + Application.ExecutablePath);
+                }
+            }
+            catch(Exception e)
+            {
+                this.putMessageToHistory(e.Message);
+            }
+        }
+
+        private void disactivateRunWithWindows()
+        {
+            try
+            {
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+                {
+                    key.DeleteValue("Proza", false);
+                }
+            }
+            catch (Exception e)
+            {
+                this.putMessageToHistory(e.Message);
+            }
+        }
+
+        private void RunButton_Click(object sender, EventArgs e)
+        {
+            this.runCommand();
+        }
+
+        private void RunWithWindowsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (runWithWindowsCheckBox.Checked)
+            {
+                this.runWithWindows("activate");
+            }
+            else { 
+                runWithWindows("disactivate");
             }
         }
     }

@@ -37,15 +37,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.actionsTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.runButton = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.scheduleTwenty = new System.Windows.Forms.RadioButton();
             this.scheduleThirty = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.runWithWindowsCheckBox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -104,10 +104,18 @@
             this.panel2.Controls.Add(this.scheduleTwenty);
             this.panel2.Controls.Add(this.scheduleThirty);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.runWithWindowsCheckBox);
             this.panel2.Controls.Add(this.label1);
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
+            // 
+            // checkBox2
+            // 
+            resources.ApplyResources(this.checkBox2, "checkBox2");
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // saveButton
             // 
@@ -149,24 +157,17 @@
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
-            // checkBox1
+            // runWithWindowsCheckBox
             // 
-            resources.ApplyResources(this.checkBox1, "checkBox1");
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.runWithWindowsCheckBox, "runWithWindowsCheckBox");
+            this.runWithWindowsCheckBox.Name = "runWithWindowsCheckBox";
+            this.runWithWindowsCheckBox.UseVisualStyleBackColor = true;
+            this.runWithWindowsCheckBox.CheckedChanged += new System.EventHandler(this.RunWithWindowsCheckBox_CheckedChanged);
             // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            // 
-            // checkBox2
-            // 
-            resources.ApplyResources(this.checkBox2, "checkBox2");
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // Proza
             // 
@@ -194,7 +195,7 @@
         private System.Windows.Forms.RadioButton scheduleTwenty;
         private System.Windows.Forms.RadioButton scheduleThirty;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox runWithWindowsCheckBox;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
