@@ -121,6 +121,7 @@
             resources.ApplyResources(this.runButton, "runButton");
             this.runButton.Name = "runButton";
             this.runButton.UseVisualStyleBackColor = false;
+            this.runButton.Click += new System.EventHandler(this.RunButton_Click);
             // 
             // radioButton1
             // 
